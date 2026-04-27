@@ -76,20 +76,28 @@ namespace LINQ_01
 
             #region 6 Anonymous Type
 
-            var anon = ProductList
-                .Select(p => new
-                {
-                    Name = p.ProductName,
-                    Price = p.UnitPrice,
-                    StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock"
-                });
+            //var anon = ProductList
+            //    .Select(p => new
+            //    {
+            //        Name = p.ProductName,
+            //        Price = p.UnitPrice,
+            //        StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock"
+            //    });
 
-            foreach (var x in anon)
-                Console.WriteLine($"{x.Name} - {x.Price} - {x.StockStatus}");
+            //foreach (var x in anon)
+            //    Console.WriteLine($"{x.Name} - {x.Price} - {x.StockStatus}");
 
             #endregion
 
+            #region 7 Position (1-based)
 
+            var withIndex = ProductList
+                .Select((p, i) => new { Index = i + 1, Name = p.ProductName });
+
+            foreach (var x in withIndex)
+                Console.WriteLine($"{x.Index}. {x.Name}");
+
+            #endregion
         }
     }
 
