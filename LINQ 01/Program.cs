@@ -91,11 +91,19 @@ namespace LINQ_01
 
             #region 7 Position (1-based)
 
-            var withIndex = ProductList
-                .Select((p, i) => new { Index = i + 1, Name = p.ProductName });
+            //var withIndex = ProductList
+            //    .Select((p, i) => new { Index = i + 1, Name = p.ProductName });
 
-            foreach (var x in withIndex)
-                Console.WriteLine($"{x.Index}. {x.Name}");
+            //foreach (var x in withIndex)
+            //    Console.WriteLine($"{x.Index}. {x.Name}");
+
+            #endregion
+
+            #region 8 Sort Category then Price Desc
+
+            var multiSort = ProductList
+                .OrderBy(p => p.Category)
+                .ThenByDescending(p => p.UnitPrice);
 
             #endregion
         }
