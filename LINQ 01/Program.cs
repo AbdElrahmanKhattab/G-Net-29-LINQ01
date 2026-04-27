@@ -133,11 +133,24 @@ namespace LINQ_01
 
             #region 11 Position + Name
 
-            var pos = ProductList
-                .Select((p, i) => $"{i + 1}. {p.ProductName}");
+            //var pos = ProductList
+            //    .Select((p, i) => $"{i + 1}. {p.ProductName}");
 
-            foreach (var x in pos)
-                Console.WriteLine(x);
+            //foreach (var x in pos)
+            //    Console.WriteLine(x);
+
+            #endregion
+
+            #region 12 Sort by Length then Case-Insensitive
+
+            string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            var sortedWords = Arr
+                .OrderBy(w => w.Length)
+                .ThenBy(w => w, StringComparer.OrdinalIgnoreCase);
+
+            foreach (var w in sortedWords)
+                Console.WriteLine(w);
 
             #endregion
         }
