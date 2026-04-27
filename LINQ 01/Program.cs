@@ -52,14 +52,20 @@ namespace LINQ_01
 
             #region 3 Sort by Price
 
-            var sorted = ProductList
-                .OrderBy(p => p.UnitPrice);
+            //var sorted = ProductList
+            //    .OrderBy(p => p.UnitPrice);
 
-            foreach (var p in sorted)
-                Console.WriteLine($"{p.ProductName} - {p.UnitPrice}");
+            //foreach (var p in sorted)
+            //    Console.WriteLine($"{p.ProductName} - {p.UnitPrice}");
 
             #endregion
 
+            #region 4 Price between 10 and 30
+
+            var range = ProductList
+                .Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+
+            #endregion
 
         }
     }
