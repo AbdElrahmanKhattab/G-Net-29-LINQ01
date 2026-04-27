@@ -43,10 +43,20 @@ namespace LINQ_01
 
             #region 2 Only Names
 
-            var names = ProductList.Select(p => p.ProductName);
+            //var names = ProductList.Select(p => p.ProductName);
 
-            foreach (var n in names)
-                Console.WriteLine(n);
+            //foreach (var n in names)
+            //    Console.WriteLine(n);
+
+            #endregion
+
+            #region 3 Sort by Price
+
+            var sorted = ProductList
+                .OrderBy(p => p.UnitPrice);
+
+            foreach (var p in sorted)
+                Console.WriteLine($"{p.ProductName} - {p.UnitPrice}");
 
             #endregion
 
