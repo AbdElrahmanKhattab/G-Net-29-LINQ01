@@ -109,14 +109,28 @@ namespace LINQ_01
 
             #region 9 Beverages sorted by stock
 
-            var beverages = ProductList
-                .Where(p => p.Category == "Beverages")
-                .OrderByDescending(p => p.UnitsInStock);
+            //var beverages = ProductList
+            //    .Where(p => p.Category == "Beverages")
+            //    .OrderByDescending(p => p.UnitsInStock);
 
-            foreach (var p in beverages)
-                Console.WriteLine($"{p.ProductName} - {p.UnitsInStock}");
+            //foreach (var p in beverages)
+            //    Console.WriteLine($"{p.ProductName} - {p.UnitsInStock}");
 
             #endregion
+
+            #region 10 Query Syntax (Orders 1997+)
+
+            var q =
+                from o in Orders
+                where o.OrderDate.Year >= 1997
+                select new
+                {
+                    o.CustomerID,
+                    o.OrderDate
+                };
+
+            #endregion
+
         }
     }
 
