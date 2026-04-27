@@ -33,13 +33,38 @@ namespace LINQ_01
 
             #region 1 Seafood Products
 
-            var seafood = ProductList
-                .Where(p => p.Category == "Seafood");
+            //var seafood = ProductList
+            //    .Where(p => p.Category == "Seafood");
 
-            foreach (var p in seafood)
-                Console.WriteLine($"{p.ProductName} - {p.UnitPrice}");
+            //foreach (var p in seafood)
+            //    Console.WriteLine($"{p.ProductName} - {p.UnitPrice}");
 
             #endregion
+
+            #region 2 Only Names
+
+            var names = ProductList.Select(p => p.ProductName);
+
+            foreach (var n in names)
+                Console.WriteLine(n);
+
+            #endregion
+
+
         }
+    }
+
+    class Product
+    {
+        public string ProductName;
+        public string Category;
+        public double UnitPrice;
+        public int UnitsInStock;
+    }
+
+    class Order
+    {
+        public string CustomerID;
+        public DateTime OrderDate;
     }
 }
