@@ -143,16 +143,30 @@ namespace LINQ_01
 
             #region 12 Sort by Length then Case-Insensitive
 
-            string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+            //string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            var sortedWords = Arr
-                .OrderBy(w => w.Length)
-                .ThenBy(w => w, StringComparer.OrdinalIgnoreCase);
+            //var sortedWords = Arr
+            //    .OrderBy(w => w.Length)
+            //    .ThenBy(w => w, StringComparer.OrdinalIgnoreCase);
 
-            foreach (var w in sortedWords)
-                Console.WriteLine(w);
+            //foreach (var w in sortedWords)
+            //    Console.WriteLine(w);
 
             #endregion
+
+            #region 13 Digits (second letter i + reverse)
+
+            string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var result = digits
+                .Where(d => d.Length > 1 && d[1] == 'i')
+                .Reverse();
+
+            foreach (var d in result)
+                Console.WriteLine(d);
+
+            #endregion
+
         }
     }
 
