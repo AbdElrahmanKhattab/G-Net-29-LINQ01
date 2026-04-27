@@ -101,9 +101,20 @@ namespace LINQ_01
 
             #region 8 Sort Category then Price Desc
 
-            var multiSort = ProductList
-                .OrderBy(p => p.Category)
-                .ThenByDescending(p => p.UnitPrice);
+            //var multiSort = ProductList
+            //    .OrderBy(p => p.Category)
+            //    .ThenByDescending(p => p.UnitPrice);
+
+            #endregion
+
+            #region 9 Beverages sorted by stock
+
+            var beverages = ProductList
+                .Where(p => p.Category == "Beverages")
+                .OrderByDescending(p => p.UnitsInStock);
+
+            foreach (var p in beverages)
+                Console.WriteLine($"{p.ProductName} - {p.UnitsInStock}");
 
             #endregion
         }
