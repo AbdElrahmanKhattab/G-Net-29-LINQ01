@@ -62,11 +62,17 @@ namespace LINQ_01
 
             #region 4 Price between 10 and 30
 
-            var range = ProductList
-                .Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+            //var range = ProductList
+            //    .Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
 
             #endregion
 
+            #region 5 In stock + Condiments
+
+            var condiments = ProductList
+                .Where(p => p.UnitsInStock > 0 && p.Category == "Condiments");
+
+            #endregion
         }
     }
 
