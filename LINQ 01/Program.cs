@@ -120,17 +120,26 @@ namespace LINQ_01
 
             #region 10 Query Syntax (Orders 1997+)
 
-            var q =
-                from o in Orders
-                where o.OrderDate.Year >= 1997
-                select new
-                {
-                    o.CustomerID,
-                    o.OrderDate
-                };
+            //var q =
+            //    from o in Orders
+            //    where o.OrderDate.Year >= 1997
+            //    select new
+            //    {
+            //        o.CustomerID,
+            //        o.OrderDate
+            //    };
 
             #endregion
 
+            #region 11 Position + Name
+
+            var pos = ProductList
+                .Select((p, i) => $"{i + 1}. {p.ProductName}");
+
+            foreach (var x in pos)
+                Console.WriteLine(x);
+
+            #endregion
         }
     }
 
